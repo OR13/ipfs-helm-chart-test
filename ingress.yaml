@@ -2,17 +2,9 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: ipfs
-  annotations:
-    kubernetes.io/ingress.global-static-ip-name: ipfs-ip
   labels:
     app: ipfs
 spec:
-  tls:
-    - secretName: ipfs-tls-secret
-  rules:
-  - host: ipfs.transmute.network
-    http:
-      paths:
-      - backend:
-          serviceName: ipfs-service
-          servicePort: 8080
+  backend:
+    serviceName: transmute-ipfs-dev-ipfs
+    servicePort: 8080
