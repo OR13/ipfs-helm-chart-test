@@ -3,7 +3,7 @@ replicaCount: 1
 image: or13/transmute-ipfs
 
 service:
-  type: ClusterIP
+  type: NodePort
 
 resources: {}
 

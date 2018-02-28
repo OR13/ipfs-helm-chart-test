@@ -34,6 +34,13 @@ spec:
         volumeMounts:
           - name: ipfs-storage
             mountPath: /data/ipfs
+        readinessProbe:
+          httpGet:
+            path: /version
+            port: 8080
+            scheme: HTTP
+          initialDelaySeconds: 5
+          timeoutSeconds: 5
         resources:
 {{ toYaml .Values.resources | indent 10 }}
 
